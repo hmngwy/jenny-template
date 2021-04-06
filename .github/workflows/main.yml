@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    name:  Build with Jenny
+    steps:
+    - uses: actions/checkout@v2
+    - uses: hmngwy/jenny@master
+    - uses: JamesIves/github-pages-deploy-action@4.1.1
+      with:
+        branch: gh-pages
+        folder: .dist
