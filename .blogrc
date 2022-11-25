@@ -11,7 +11,7 @@ DIST=.dist
 STATIC_DIRS="images files"
 
 # Use custom template files, see instructions at https://github.com/hmngwy/jenny#customization
-#LAYOUT_DIR=
+LAYOUT_DIR=multimarkdown
 
 # Use a custom Markdown command
 #MARKDOWN_COMMAND=
