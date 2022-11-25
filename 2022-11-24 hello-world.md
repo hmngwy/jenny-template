@@ -2,7 +2,7 @@
 
 Jenny is a static blog generator using bash, sed, and awk.
 
-it works!
+It works!
 
 I decided to switch because this way is much more simple, I remove out the old tools:
 
