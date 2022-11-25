@@ -22,3 +22,5 @@ I don't need special tools to create html from makrdown and now I am just a simp
 (thanks Jenny and github workflows)
 
 ;op
+
+tags: blog
