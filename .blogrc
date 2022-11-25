@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BLOG_HOST="http://localhost:8000"
-BLOG_TITLE="My Blog"
+BLOG_TITLE="FABIANO GOMES"
 POSTS_PER_PAGE=8
 
 # This is your build directory
