@@ -8,10 +8,10 @@ POSTS_PER_PAGE=8
 DIST=.dist
 
 # These directories are copied into your build directory
-STATIC_DIRS="images files"
+# STATIC_DIRS="img"
 
 # Use custom template files, see instructions at https://github.com/hmngwy/jenny#customization
-# LAYOUT_DIR=multimarkdown
+LAYOUT_DIR=.layout
 
 # Use a custom Markdown command
 MARKDOWN_COMMAND=multimarkdown
