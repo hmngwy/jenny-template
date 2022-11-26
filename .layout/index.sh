@@ -33,47 +33,51 @@ _NAV_
 }
 
 cat << _EOF_
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>${BLOG_TITLE}</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAANjY2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARERERAAAAAAAAAAAAAAAAEQEBEQAAAAAAAAAAAAAAABEREREAAAAAAAAAAAAAAAARAREBAAAAAAAAAAAAAAAAEREBEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADwDwAA//8AAPKPAAD//wAA8A8AAP//AADyLwAA//8AAPCPAAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon">
-    <style>
-      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      body {
-        background-color: white;
-        color: #444;
-        font-size: 16px;
-        padding: 1em;
-        font-family: 'Roboto', monospace;
-        line-height: 1.5em;
-      }
-      a { color: inherit; }
-      .posts { list-style: none; padding: 0; margin: 1em 0; line-height: 1.6em; }
-      .post-link { display: table; text-transform: uppercase; margin-bottom: .55em; }
-      .post-link a { text-decoration: none; }
-      .post-link .title:hover {  text-decoration: underline;  }
-      .post-link .stamp { color: #999; display: table-cell; width: 2.25em; text-align:right; padding-right: 1.5em; }
-      .post-link .title { color: #333; display: table-cell; vertical-align: top;font-weight: bold; }
-      nav a { color: #555; text-decoration: none; } nav a:hover { color: #268bd2}
-      nav a+a:before { content: ' • '; }
-      header { text-transform: uppercase; }
-      header a { text-decoration: none }
-    </style>
-  </head>
-  <body>
-    <header><a href="/">${BLOG_TITLE}</a>
-      $(if [ "$TAGNAME" ]; then echo "-> TAG == <a href=\"/tag/$TAGNAME\">$TAGNAME</a>"; fi)
-      $(if [ "$PAGE_NUM" ]; then echo "-> <a href=\"/page/$PAGE_NUM.html\">Page $PAGE_NUM</a>"; fi)
-    </header>
-    $(if [ "$TAGNAME" ]; then echo "<header><a href=\"/tag/$TAGNAME\">TAG: $TAGNAME</a></header>"; fi)
-    <ul class="posts">
-      $(index_loop)
-    </ul>
-    $(nav)
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <style>
+            .center {
+                text-align: center;
+            }
+            ul li {
+                list-style: none;
+            }
+        </style>
+        <title>${BLOG_TITLE}</title>
+    </head>
+    <body>
+    <main class="container">
+        <header>
+            <nav>
+                <ul>
+                <li><strong><a href="/">${BLOG_TITLE}</a></strong></li>
+                </ul>
+                <ul>
+                <li><a href="https://www.linkedin.com/in/gomes-fdr"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.github.com/gomes-fdr"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://bolha.us/@gomes_fdr"><i class="fab fa-mastodon"></i></a></li>
+                <li><a href="mailto:gomes.fdr@gmail.com"><i class="far fa-envelope"></i></a></li>
+                <li><a href="https://gomes-fdr.github.io/feed"><i class="fas fa-rss"></i></a></li>
+                </ul>
+            </nav>
+            $(if [ "$TAGNAME" ]; then echo "-> TAG == <a href=\"/tag/$TAGNAME\">$TAGNAME</a>"; fi)
+            $(if [ "$PAGE_NUM" ]; then echo "-> <a href=\"/page/$PAGE_NUM.html\">Page $PAGE_NUM</a>"; fi)
+        </header>
+        <hr>
+        $(if [ "$TAGNAME" ]; then echo "<header><a href=\"/tag/$TAGNAME\">TAG: $TAGNAME</a></header>"; fi)
+        <ul>
+            $(index_loop)
+        </ul>
+        <hr>
+        <footer class="center">
+            <small>2022 &#169; some rights reserved</small>
+        </footer>
+    </main>
   </body>
 </html>
 _EOF_

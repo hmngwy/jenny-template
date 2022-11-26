@@ -1,69 +1,54 @@
 #!/bin/bash
 
 cat << _EOF_
-  <!DOCTYPE html>
-  <html>
+<!doctype html>
+<html lang="en">
     <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      <title>$POST_TITLE - Jenny</title>
-      <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
-      <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAANjY2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARERERAAAAAAAAAAAAAAAAEQEBEQAAAAAAAAAAAAAAABEREREAAAAAAAAAAAAAAAARAREBAAAAAAAAAAAAAAAAEREBEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AADwDwAA//8AAPKPAAD//wAA8A8AAP//AADyLwAA//8AAPCPAAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon">
-      <style>
-        html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        body {
-          background-color: white;
-          color: #444;
-          font-size: 14px;
-          padding: 1em;
-          font-family: 'Roboto', sans-serif;
-          line-height: 1.5em;
-        }
-        @media (min-width: 736px) { body { font-size: 16px } }
-        article { padding: 0; margin: 1em 0; max-width: 74ch; }
-        article a { color: #b58900; }
-        article img { max-width: 100% }
-        article blockquote { border-left: 2px solid #CCC; }
-        article blockquote,
-        article pre { background-color: #f4f4f4; margin: 0; padding: 1em; border-radius: 3px; border-bottom: 1px solid #DDD; }
-        article pre,
-        article code { font-family: 'Fira Mono'; font-size: 14px; display: inline-block; color: #333; }
-        article pre { word-break: break-all; white-space: pre-wrap; }
-        article code::first-line { line-height: 0 }
-        article blockquote :first-of-type { margin-top: 0; }
-        article blockquote :last-of-type { margin-bottom: 0; }
-        article hr { border: 0; border-bottom: 3px solid #CCC; }
-        .heading { text-transform: uppercase; line-height: 1.6em; }
-        .heading a { text-decoration: none; }
-        .heading .title { color: #222; display: table-cell; margin: 0 0 1em; font-weight:bold; max-width: 500px;  }
-        .heading .title:hover { text-decoration: underline; }
-        .heading .stamp,
-        .home { display: inline-block; text-align:right; margin-right: 1.5em; }
-        .home { text-decoration: none; width: 5.4em; margin-bottom: 1.5em; text-align: left;  color: #cb4b16; } .home:hover { color: #dc322f; }
-        .heading .stamp { color: #999; }
-        .contents { display: inline-block; max-width: 60ch; vertical-align: top; width: 100%; }
-        .contents :first-child { margin-top: 0; }
-        h1, h2, h3, h4, h5, h6 { font-size: 1em; font-weight: normal; text-transform: uppercase; margin: 2em 0 1em; }
-        ol, ul { padding-left: 1em; }
-        ul.fn-list { list-style: none; padding: 2em 0 0; margin-top: 2.5em; font-size: .9em; }
-        .fn-handle, .fn-text { display: table-cell; }
-        .fn-handle { padding-right: 1ch; }
-        .fnref { line-height: 0 }
-        .tags { margin-top: 2.5em; padding-top: 1.5em; font-size: .9em; border-top: 2px solid #EEE; }
-        header { text-transform: uppercase; }
-        header a { text-decoration: none; color: inherit; }
-      </style>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <style>
+            .center {
+                text-align: center;
+            }
+            ul li {
+                list-style: none;
+            }
+        </style>
+        <title>${BLOG_TITLE}</title>
     </head>
     <body>
-      <header><a href="/">$BLOG_TITLE</a></header>
-      <article>
-      <div class="heading"><a href=""><span class="stamp">$(date -d "$POST_DATE_RFC822" +%m/%d/%Y)</span><h1 class="title">$POST_TITLE</h1></a></div>
-        <a href="../" class="home">←</a><div class="contents">
-        $(echo "$POST_CONTENTS")
-        <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div>
-        </div>
-      </article>
-    </body>
-  </html>
+    <main class="container">
+        <header>
+            <nav>
+                <ul>
+                <li><strong><a href="/">${BLOG_TITLE}</a></strong></li>
+                </ul>
+                <ul>
+                <li><a href="https://www.linkedin.com/in/gomes-fdr"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.github.com/gomes-fdr"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://bolha.us/@gomes_fdr"><i class="fab fa-mastodon"></i></a></li>
+                <li><a href="mailto:gomes.fdr@gmail.com"><i class="far fa-envelope"></i></a></li>
+                <li><a href="https://gomes-fdr.github.io/feed"><i class="fas fa-rss"></i></a></li>
+                </ul>
+            </nav>
+            $(if [ "$TAGNAME" ]; then echo "-> TAG == <a href=\"/tag/$TAGNAME\">$TAGNAME</a>"; fi)
+            $(if [ "$PAGE_NUM" ]; then echo "-> <a href=\"/page/$PAGE_NUM.html\">Page $PAGE_NUM</a>"; fi)
+        </header>
+        <hr>
+        <section>
+            <div class="heading"><a href=""><span class="stamp">$(date -d "$POST_DATE_RFC822" +%m/%d/%Y)</span><h1 class="title">$POST_TITLE</h1></a></div>
+            <a href="../" class="home">←</a><div class="contents">
+            $(echo "$POST_CONTENTS")
+            <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div>
+            </div>
+        </section>
+        <hr>
+        <footer class="center">
+            <small>2022 &#169; some rights reserved</small>
+        </footer>
+    </main>
+  </body>
+</html>
 _EOF_
