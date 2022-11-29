@@ -23,4 +23,4 @@ I don't need special tools to create html from makrdown and now I am just a simp
 
 ;op
 
-tags: blog
+tags: blog english
