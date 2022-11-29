@@ -12,9 +12,6 @@ cat << _EOF_
             .center {
                 text-align: center;
             }
-            ul li {
-                list-style: none;
-            }
         </style>
         <title>${BLOG_TITLE}</title>
     </head>
@@ -46,7 +43,7 @@ cat << _EOF_
         </section>
         <hr>
         <footer class="center">
-            <small>2022 &#169; some rights reserved</small>
+            <small>2022 &#169; generated with [jenny](https://github.com/hmngwy/jenny)</small>
         </footer>
     </main>
   </body>
