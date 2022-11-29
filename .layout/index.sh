@@ -75,7 +75,7 @@ cat << _EOF_
         </ul>
         <hr>
         <footer class="center">
-            <small>2022 &#169; generated with [jenny](https://github.com/hmngwy/jenny)</small>
+            <small>2022 &#169; generated with <a href="https://github.com/hmngwy/jenny">jenny</a></small>
         </footer>
     </main>
   </body>
