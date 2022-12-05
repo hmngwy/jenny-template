@@ -1,0 +1,3 @@
+# Bash
+
+tags: note bash
