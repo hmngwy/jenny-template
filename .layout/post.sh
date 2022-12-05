@@ -35,7 +35,7 @@ cat << _EOF_
         </header>
         <hr>
         <section>
-            <div class="heading"><a href=""><span class="stamp">$(date -d "$POST_DATE_RFC822" +%m/%d/%Y)</span><h1 class="title">$POST_TITLE</h1></a></div>
+            <div class="heading"><a href=""><span class="stamp">$POST_DATE</span><h1 class="title">$POST_TITLE</h1></a></div>
             <a href="../" class="home">←</a><div class="contents">
             $(echo "$POST_CONTENTS")
             <div class="tags">$(for i in $TAGS; do echo "<a href=\"../tag/$i\">$i</a>"; done;)</div>
