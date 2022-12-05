@@ -28,4 +28,10 @@ Na documentação do projeto está tudo bem descrito, com a exceção de uma coi
 
 **Não esqueça de alterar as permisões dos arquivos da pasta .layout** eu apliquei um chmod 775 e tudo funcionou lindamente.
 
+**Se quiser que os posts obedeçam a ordem da data definida no nome do arquivo YYYY-MM-DD, remova isso do template:**
+
+    $(date -d "$POST_DATE_RFC822" +%m/%d/%Y)
+    # e passe a usar apenas
+    $POST_DATE
+
 tags: portuguese
