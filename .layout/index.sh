@@ -12,7 +12,7 @@ function index_loop {
 function list_item {
   if [ -z "$BREAK" ]; then
 cat << _LOOP_
-  <li class="post-link"><a href="$URL_PREFIX$POST_URL"><span class="stamp">$(date -d "$POST_DATE_RFC822" +%m/%d/%Y)</span> <span class="title">$POST_TITLE</span></a></li>
+  <li class="post-link"><a href="$URL_PREFIX$POST_URL"><span class="stamp">$POST_DATE</span> <span class="title">$POST_TITLE</span></a></li>
 _LOOP_
   else
 cat << _LOOP_
