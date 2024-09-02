@@ -1,3 +1,5 @@
+name: "jenny build" 
+
 on: [push]
 
 jobs:
