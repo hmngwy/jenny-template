@@ -18,7 +18,7 @@
           line-height: 1.5em;
         }
         @media (min-width: 736px) { body { font-size: 16px } }
-        article { padding: 0; margin: 1em 0; max-width: 70ch; }
+        article { padding: 0; margin: 1em 0; max-width: 74ch; }
         article a { color: #b58900; }
         article img { max-width: 100% }
         article blockquote { border-left: 2px solid #CCC; }
@@ -33,12 +33,12 @@
         article hr { border: 0; border-bottom: 3px solid #CCC; }
         .heading { text-transform: uppercase; line-height: 1.6em; }
         .heading a { text-decoration: none; }
-        .heading .title { color: #222; display: inline-block; margin: 0 0 1em; font-weight:bold  }
+        .heading .title { color: #222; display: table-cell; margin: 0 0 1em; font-weight:bold; max-width: 500px;  }
         .heading .title:hover { text-decoration: underline; }
-        .heading .stamp { color: #999; }
         .heading .stamp,
-        .home { display: inline-block; width: 2.66em; text-align:right; margin-right: 1.5em; }
-        .home { text-decoration: none; margin-bottom: 1.5em; text-align: left;  color: #cb4b16; } .home:hover { color: #dc322f; }
+        .home { display: inline-block; text-align:right; margin-right: 1.5em; }
+        .home { text-decoration: none; width: 5.4em; margin-bottom: 1.5em; text-align: left;  color: #cb4b16; } .home:hover { color: #dc322f; }
+        .heading .stamp { color: #999; }
         .contents { display: inline-block; max-width: 60ch; vertical-align: top; width: 100%; }
         .contents :first-child { margin-top: 0; }
         h1, h2, h3, h4, h5, h6 { font-size: 1em; font-weight: normal; text-transform: uppercase; margin: 2em 0 1em; }
@@ -48,11 +48,14 @@
         .fn-handle { padding-right: 1ch; }
         .fnref { line-height: 0 }
         .tags { margin-top: 2.5em; padding-top: 1.5em; font-size: .9em; border-top: 2px solid #EEE; }
+        header { text-transform: uppercase; }
+        header a { text-decoration: none; color: inherit; }
       </style>
     </head>
     <body>
+      <header><a href="/">My Blog</a></header>
       <article>
-      <div class="heading"><a href="./"><span class="stamp">04/06</span><h1 class="title">Hello World</h1></a></div>
+      <div class="heading"><a href=""><span class="stamp">04/06/2021</span><h1 class="title">Hello World</h1></a></div>
         <a href="../" class="home">←</a><div class="contents">
         
 <p>Jenny is a static blog generator using bash, sed, and awk.</p>
