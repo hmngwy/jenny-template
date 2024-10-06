@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+BLOG_HOST="http://localhost:8000"
+BLOG_TITLE="My Blog"
+POSTS_PER_PAGE=8
+
+# This is your build directory
+DIST=.dist
+
+# These directories are copied into your build directory
+STATIC_DIRS="images files"
+
+# Use custom template files, see instructions at https://github.com/hmngwy/jenny#customization
+#LAYOUT_DIR=
+
+# Use a custom Markdown command
+#MARKDOWN_COMMAND=
+
+# Commands to run after succesful build
+#function post_hook() {
+#  echo "Done."
+#}
+function post_hook() {
+  fold -sw 20 <
+}
